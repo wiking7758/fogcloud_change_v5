@@ -20,6 +20,7 @@ local fault_cmds = {
     "year","month","day","hour","min","sec"
 }
 
+--配合my_cmds使用，指出sys_,limit_,in_,on_,fall_,confeedback_和conoutput_的个数
 local data_bit_count = {
     [1] = {Byte_name = "X0", bit_count =  1, data_index1 = 18, data_index2 = 19},
     [2] = {Byte_name = "X1", bit_count = 10, data_index1 = 20, data_index2 = 21},
@@ -46,13 +47,14 @@ local data_bit_count = {
     [21] = {Byte_name = "improve_control_output_signal", bit_count = 4, data_index1 = 64, data_index2 = 65},--提升控制输出信号
     [22] = {Byte_name = "car_control_output_signal", bit_count = 5,     data_index1 = 66, data_index2 = 67},--小车控制输出信号
 }
+
 --将字符转换为数字
 function getnumber(index)
    return string.byte(strload,index)
 end
 
 function get_one_word(index1, index2)
-    return (bit.lshift( getnumber(index1), 8 ) + getnumber(index1))
+    return (bit.lshift( getnumber(18), 8 ) + getnumber(19))
 end
 
 --FCS校验
@@ -73,7 +75,7 @@ function packet_fcs(templen)
     local FCS_Array = {}    --FCS校验的数组(table)，用于逐个存储每个Byte的数值
     local FCS_Value = 0     --用来直接读取发来的数值，并进行校验
 
-    FCS_Value = bit.lshift( getnumber(templen + 5), 8 ) + getnumber(templen + 6) --得到FCS校验
+	FCS_Value = bit.lshift( getnumber(templen + 5), 8 ) + getnumber(templen + 6) --得到FCS校验
     
     for i = 1,templen + 4,1 do
         table.insert(FCS_Array,getnumber(i))
@@ -99,40 +101,47 @@ function status_packet_init()
             local packet_data = get_one_word(data_bit_count[var].data_index1, get_one_word(data_bit_count[var].data_index2))
             
             if(bit.band(packet_data, bit.lshift(1,j - 1))) then 
-               packet[(data_bit_count[var].Byte_name).."_BIT"..(j-1)] = "Y"
-            else
-               packet[(data_bit_count[var].Byte_name).."_BIT"..(j-1)] = "N"
-            end  
-            
+        	   packet[(data_bit_count[var].Byte_name).."_BIT"..(j-1)] = "Y"
+        	else
+        	   packet[(data_bit_count[var].Byte_name).."_BIT"..(j-1)] = "N"
+        	end  
+        	
         end
     end
     
 end
 
 function fault_packet_int(fault_total)
-    local temp_time = {}
-    
+
     for i=1,fault_total * 9,1 do
         local n = ((i-1) % 9)+1
         local m = math.ceil(i/9)
-        
-        if n<=3 then -- "code","level","status",
-            packet[ "fault"..m..fault_cmds[n] ] = bit.lshift( getnumber(14+i*2) , 8 ) + getnumber(15+i*2)
-        else  --"year","month","day","hour","min","sec"
-            temp_time[ "fault"..m..fault_cmds[n] ] = bit.lshift( getnumber(14+i*2) , 8 ) + getnumber(15+i*2)
-        end
-                     
+        packet[ "fault"..m..fault_cmds[n] ] = bit.lshift( getnumber(14+i*2) , 8 ) + getnumber(15+i*2)
         if i % 9 == 0 then
-            packet[ "fault"..m.."time" ] = temp_time["fault"..m.."year"]..'/'..temp_time["fault"..m.."month"]..'/'..temp_time["fault"..m.."day"]..'-'..temp_time["fault"..m.."hour"]..':'..temp_time["fault"..m.."min"]..':'..temp_time["fault"..m.."sec"]
+            packet[ "fault"..m.."time" ] = packet["fault"..m.."year"]..'/'..packet["fault"..m.."month"]..'/'..packet["fault"..m.."day"]..'-'..packet["fault"..m.."hour"]..':'..packet["fault"..m.."min"]..':'..packet["fault"..m.."sec"]
+--            table.remove(packet,"fault"..m.."year");
+--            table.remove(packet,"fault"..m.."month");
+--            table.remove(packet,"fault"..m.."day");
+--            table.remove(packet,"fault"..m.."hour");
+--            table.remove(packet,"fault"..m.."min");
+--            table.remove(packet,"fault"..m.."sec");
         end
-        
     end
+end
+
+
+
+
+--将字符转换为数字
+function getnumber( index )
+    return string.byte(strload,index)
 end
 
 --编码 /in 频道的数据包
 function _M.encode(payload)
   return payload
 end
+
 
 --解码 /out 频道的数据包
 function _M.decode(payload)

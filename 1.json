@@ -1,0 +1,141 @@
+{
+	"sys_status":0,  	//系统状态: 	0:待机 1:停止 2:就绪
+	"lft_status":1,		//机构起升状态 	0: 停止 1: 正转低速 2: 正转高速 3: 反转低速 4: 反转高速
+	"car_status":1,		//小车状态		0: 停止 1: 停车中 2: 正转低速 3: 反转低速 4: 正转高速 5: 反转高速
+
+	"X0_BIT0":"Y",		//X0端子原始状态
+
+	"X1_BIT0":"Y",		//X10端子原始状态
+	"X1_BIT1":"Y",		//X11端子原始状态
+	"X1_BIT2":"Y",		//X12端子原始状态
+	"X1_BIT3":"Y",		//X13端子原始状态
+	"X1_BIT4":"Y",		//X14端子原始状态
+	"X1_BIT5":"Y",		//X15端子原始状态
+	"X1_BIT6":"Y",		//X16端子原始状态
+	"X1_BIT7":"Y",		//X17端子原始状态
+	"X1_BIT8":"Y",		//X18端子原始状态
+	"X1_BIT9":"Y",		//X19端子原始状态
+
+	"X2_BIT0":"Y",		//X20端子原始状态
+	"X2_BIT1":"Y",		//X21端子原始状态
+	"X2_BIT2":"Y",		//X22端子原始状态
+	"X2_BIT3":"Y",		//X23端子原始状态
+	"X2_BIT4":"Y",		//X24端子原始状态
+	"X2_BIT5":"Y",		//X25端子原始状态
+	"X2_BIT6":"Y",		//X26端子原始状态
+	"X2_BIT7":"Y",		//X27端子原始状态
+
+	"X3_BIT0":"Y",		//X30端子原始状态
+	"X3_BIT1":"Y",		//X31端子原始状态
+	"X3_BIT2":"Y",		//X32端子原始状态
+	"X3_BIT3":"Y",		//X33端子原始状态
+	"X3_BIT4":"Y",		//X34端子原始状态
+	"X3_BIT5":"Y",		//X35端子原始状态
+
+	"X4_BIT0":"Y",		//X40端子原始状态
+	"X4_BIT1":"Y",		//X41端子原始状态
+	"X4_BIT2":"Y",		//X42端子原始状态
+
+	"XA_BIT0":"Y",		//XA0端子原始状态
+	"XA_BIT1":"Y",		//XA1端子原始状态
+	"XA_BIT2":"Y",		//XA2端子原始状态
+	"XA_BIT3":"Y",		//XA3端子原始状态
+
+
+	"X0_POL_BIT0":"Y",	//X0端子极性
+
+	"X1_POL_BIT0":"Y",	//X10端子极性
+	"X1_POL_BIT1":"Y",	//X11端子极性
+	"X1_POL_BIT2":"Y",	//X12端子极性
+	"X1_POL_BIT3":"Y",	//X13端子极性
+	"X1_POL_BIT4":"Y",	//X14端子极性
+	"X1_POL_BIT5":"Y",	//X15端子极性
+	"X1_POL_BIT6":"Y",	//X16端子极性
+	"X1_POL_BIT7":"Y",	//X17端子极性
+	"X1_POL_BIT8":"Y",	//X18端子极性
+	"X1_POL_BIT9":"Y",	//X19端子极性
+
+	"X2_POL_BIT0":"Y",	//X20端子极性
+	"X2_POL_BIT1":"Y",	//X21端子极性
+	"X2_POL_BIT2":"Y",	//X22端子极性
+	"X2_POL_BIT3":"Y",	//X23端子极性
+	"X2_POL_BIT4":"Y",	//X24端子极性
+	"X2_POL_BIT5":"Y",	//X25端子极性
+	"X2_POL_BIT6":"Y",	//X26端子极性
+	"X2_POL_BIT7":"Y",	//X27端子极性
+
+	"X3_POL_BIT0":"Y",	//X30端子极性
+	"X3_POL_BIT1":"Y",	//X31端子极性
+	"X3_POL_BIT2":"Y",	//X32端子极性
+	"X3_POL_BIT3":"Y",	//X33端子极性
+	"X3_POL_BIT4":"Y",	//X34端子极性
+	"X3_POL_BIT5":"Y",	//X35端子极性
+
+	"X4_POL_BIT0":"Y",	//X40端子极性
+	"X4_POL_BIT1":"Y",	//X41端子极性
+	"X4_POL_BIT2":"Y",	//X42端子极性
+
+	"XA_POL_BIT0":"Y",	//XA0端子极性
+	"XA_POL_BIT1":"Y",	//XA1端子极性
+	"XA_POL_BIT2":"Y",	//XA2端子极性
+	"XA_POL_BIT3":"Y",	//XA3端子极性
+
+	"pub_command_in_BIT0":"Y", //急停
+	"pub_command_in_BIT1":"Y", //停止
+	"pub_command_in_BIT2":"Y", //启动
+	"pub_command_in_BIT3":"Y", //复位
+
+	"rise_command_in_BIT0":"Y", //起升正转
+	"rise_command_in_BIT1":"Y",	//起升反转
+	"rise_command_in_BIT2":"Y", //起升高速
+
+	"car_command_in_BIT0":"Y", //小车正转
+	"car_command_in_BIT1":"Y", //小车反转
+	"car_command_in_BIT2":"Y", //小车高速
+	"car_command_in_BIT3":"Y", //小车变频器抱闸指令
+	"car_command_in_BIT4":"Y", //小车变频器故障信号
+
+	"pull_limit_signal_BIT0":"Y",//起升限位
+	"pull_limit_signal_BIT1":"Y",//小车正转限位
+	"pull_limit_signal_BIT2":"Y",//小车反转限位
+
+	"feedback_signal_BIT0":"Y",//主接触器反馈
+	"feedback_signal_BIT1":"Y",//相序继电器
+	"feedback_signal_BIT2":"Y",//主接触器反馈
+	"feedback_signal_BIT3":"Y",//起升正转反馈
+	"feedback_signal_BIT4":"Y",//起升反转反馈
+	"feedback_signal_BIT5":"Y",//起升高速反馈
+	"feedback_signal_BIT6":"Y",//小车抱闸接触器反馈
+	"feedback_signal_BIT7":"Y",//小车热继反馈1
+	"feedback_signal_BIT8":"Y",//小车热继反馈2
+
+	"lastest_malfunction_code":1, 	//最近一个故障代码(0x00ff表示无故障)
+	"carrying_capacity":1,         //载重
+
+	"relay_output_status_BIT0":"Y",	//继电器K1输出状态
+	"relay_output_status_BIT1":"Y",	//继电器K2输出状态
+	"relay_output_status_BIT2":"Y",	//继电器K3输出状态
+	"relay_output_status_BIT3":"Y",	//继电器K4输出状态
+	"relay_output_status_BIT4":"Y",	//继电器K5输出状态
+	"relay_output_status_BIT5":"Y",	//继电器K6输出状态
+	"relay_output_status_BIT6":"Y",	//继电器K7输出状态
+	"relay_output_status_BIT7":"Y",	//继电器K8输出状态
+
+	"Y2_output_BIT0":"Y",			 //Y2端子排输出-Y20
+	"Y2_output_BIT1":"Y",			 //Y2端子排输出-Y21
+	"Y2_output_BIT2":"Y",			 //Y2端子排输出-Y22
+
+	"sys_comm_output_signal_BIT0":"Y",	//系统公共输出信号-主接触器输出
+
+	"improve_control_output_signal_BIT0":"Y", //提升控制输出信号-正转接触器
+	"improve_control_output_signal_BIT1":"Y", //提升控制输出信号-反转接触器
+	"improve_control_output_signal_BIT2":"Y", //提升控制输出信号-低速接触器
+	"improve_control_output_signal_BIT3":"Y", //提升控制输出信号-高速接触器
+
+	"car_control_output_signal_BIT0":"Y", 		//小车控制输出信号-变频器正转信号
+	"car_control_output_signal_BIT1":"Y", 		//小车控制输出信号-变频器反转信号
+	"car_control_output_signal_BIT2":"Y", 		//小车控制输出信号-变频器高速信号
+	"car_control_output_signal_BIT3":"Y", 		//小车控制输出信号-抱闸接触器
+	"car_control_output_signal_BIT4":"Y", 		//小车控制输出信号-变频器复位信号
+
+}
